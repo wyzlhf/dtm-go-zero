@@ -1,0 +1,13 @@
+1、
+在@Mikael的\gozerodtm\stock-srv\internal\logic\deductLogic.go中，使用的函数
+stock, err := l.svcCtx.StockModel.FindOneByGoodsId(in.GoodsId)，而在go-zero中的函数应该是
+stock_,err:=l.svcCtx.StockModel.FindOneByGoodsId(l.ctx,in.GoodsId)，即有上下文一项，这个是goctl自动生成的，那么@Mikeal的是如何实现的？
+
+2、
+//!!!一般数据库不会错误不需要dtm回滚，就让他一直重试，这时候就不要返回codes.Aborted, dtmcli.ResultFailure 就可以了，具体自己把控!!!
+
+这个不是很明白，可否请解释一下？
+3、
+关于go-zero本身的，在api中的internal/svc/servicecontext.go中的配置问题，
+目前从文档看，应该使用OrderRpc orderclient.Order、StockRpc stockclient.Stock这种方式，
+但是使用@Mikeal使用的OrderRpc order.Order、StockRpc stock.Stock方式运行也成功了，go-zero这到底是怎么个机制？记得刚开始学go-zero时候使用旧的方式好像报过错。
