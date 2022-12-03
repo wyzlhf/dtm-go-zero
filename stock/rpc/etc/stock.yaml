@@ -1,0 +1,8 @@
+Name: stock.rpc
+ListenOn: 127.0.0.1:9002
+Etcd:
+  Hosts:
+  - 127.0.0.1:2379
+  Key: stock.rpc
+DB:
+  DataSource: root:lhf19820130@tcp(124.222.54.172:3306)/stock?charset=utf8mb4&parseTime=true&loc=Asia%2FShanghai

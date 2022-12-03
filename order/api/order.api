@@ -1,0 +1,23 @@
+syntax = "v1"
+
+info(
+	title: "type title here"
+	desc: "type desc here"
+	author: "type author here"
+	email: "type email here"
+	version: "type version here"
+)
+type (
+	QuickCreateReq {
+		UserId  int64 `json:"userId"`
+		GoodsId int64 `json:"goodsId"`
+		Num     int64 `json:"num"`
+	}
+	QuickCreateResp {
+	}
+)
+service order {
+	@doc "创建订单"
+	@handler create
+	post /order/quickCreate (QuickCreateReq) returns (QuickCreateResp)
+}

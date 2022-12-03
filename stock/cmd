@@ -1,0 +1,3 @@
+goctl model mysql ddl -src ./stock/model/stock.sql -dir ./stock/model
+
+goctl rpc protoc ./stock/rpc/stock.proto --go_out=./stock/rpc/types --go-grpc_out=./stock/rpc/types --zrpc_out=./stock/rpc
